@@ -26,9 +26,9 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 
 ### Lección 3: Estructuras de control: Decisiones y bucles (10 minutos)
 - **Descripción**: Toma decisiones con if-else y repite tareas con bucles.
-- **Enlace**: [Ver la lección](https://www.youtube.com/watch?v=PENDIENTE)
+- **Enlace**: [Ver la lección](https://www.youtube.com/watch?v=bfvTUDQuTFcc)
 - **Conclusiones clave**: if (edad > 12) {}; for (int i=0; i<5; i++) {}
-- **Práctica**: [Clic para programar](https://jdoodle.com/execute-java-online/PENDIENTE) 👈 **¡Inicio inmediato!**
+- **Práctica**: [Clic para programar](https://www.jdoodle.com/ga/wFxn7CcfMy1NdpfILPL4Zg%3D%3D) 👈 **¡Inicio inmediato!**
 
 ### Lección 4: Métodos, Entrada/Salida e Introducción a la POO (12 minutos)
 - **Descripción**: Crea código reutilizable con métodos, obtén la entrada del usuario e introduce clases/objetos.

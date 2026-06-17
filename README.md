@@ -12,11 +12,11 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 
 ## Secuencia de la Lección
 
-### Lección 1: ¿Qué es Java y la Programación? (5-8 minutos)
+### Lección 1: ¿Qué es Java y la Programación? (4-6 minutos)
 - **Descripción**: Aprende qué es la programación y por qué Java es un excelente lenguaje para empezar.
-- **Enlace**: [Ver la lección](https://www.youtube.com/watch?v=PENDIENTE)
+- **Enlace**: [Ver la lección](https://youtu.be/HwW5vajgVBQ)
 - **Conclusiones clave**: Java se usa para aplicaciones y juegos; los programas son instrucciones para computadoras.
-- **Empieza a programar**: [Abrir Replit - Hola mundo](https://replit.com/@PENDIENTE)
+- **Empieza a programar**: [Abrir JDoodle - Hola mundo](https://www.jdoodle.com)
 
 ### Lección 2: Variables y tipos de datos (8 minutos)
 - **Descripción**: Aprende a almacenar datos en Java usando variables.
@@ -54,7 +54,7 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 
 | Número de lección | Actividad | Empezar a programar |
 |----------|----------|-------------|
-| 1 | Hola mundo | [Replit](https://replit.com/@PENDIENTE) |
+| 1 | Hola mundo | [Replit](https://www.jdoodle.com) |
 | 2 | Variables | [Replit](https://replit.com/@PENDIENTE) |
 | 3 | Bucles | [JDoodle](https://www.jdoodle.com) |
 | 4 | Métodos y clases | [OnlineGDB](https://onlinegdb.com/PENDIENTE) |

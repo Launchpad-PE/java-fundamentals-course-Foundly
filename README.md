@@ -59,7 +59,7 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 | 3 | Bucles | [JDoodle](https://jdoodle.com/execute-java-online/PENDIENTE) |
 | 4 | Métodos y clases | [OnlineGDB](https://onlinegdb.com/PENDIENTE) |
 | 5 | Programa OOP | [Replit](https://replit.com/@PENDIENTE) |
-| 6 | Errores | [JDoodle](https://www.jdoodle.com/online-java-compiler)) |
+| 6 | Errores | [JDoodle](https://www.jdoodle.com/online-java-compiler) |
 
 - Cuestionario: [Prueba de conocimientos](https://forms.gle/PENDIENTE)
 - Compartir: #JavaBeginners

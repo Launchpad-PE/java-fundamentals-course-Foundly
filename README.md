@@ -58,7 +58,7 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 | 2 | Variables | [JDoodle](https://www.jdoodle.com)  |
 | 3 | Bucles | [JDoodle](https://www.jdoodle.com) |
 | 4 | Métodos y clases | [OnlineGDB](https://onlinegdb.com/PENDIENTE) |
-| 5 | Programa OOP | [Replit](https://replit.com/@PENDIENTE) |
+| 5 | Programa OOP | [JDoodle](https://www.jdoodle.com)  |
 | 6 | Errores | [JDoodle](https://www.jdoodle.com) |
 
 - Cuestionario: [Prueba de conocimientos](https://forms.gle/PENDIENTE)

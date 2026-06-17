@@ -68,7 +68,7 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 
 ---
 
-## 👥 Elaboración
+## Elaboración
 
 Universidad Peruana de Ciencias Aplicadas  
 Carrera de Ingeniería de Software  

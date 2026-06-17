@@ -44,10 +44,10 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 
 ### Lección 6: Consejos y próximos pasos (10 minutos)
 - **Descripción**: Mejores prácticas, errores comunes y dónde aprender más.
-- **Enlace**: [Ver la lección](https://www.youtube.com/watch?v=PENDIENTE)
+- **Enlace**: [Ver la lección](https://www.youtube.com/watch?v=fhe0ZxP172k)
 - **Consejos clave**: Depurar errores, explorar la documentación de Oracle Java.
-- **Compartir tu trabajo**: [Enviar creación](https://forms.gle/PENDIENTE)
-
+**Práctica**: [Clic para programar](https://jdoodle.com/execute-java-online/PENDIENTE)
+  
 ## Recursos adicionales
 - **Código fuente completo**: [Repositorio de GitHub](https://github.com/Launchpad-PE/java-fundamentals-course-Foundly.git)
 - **Todas las actividades prácticas**:
@@ -59,6 +59,7 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 | 3 | Bucles | [JDoodle](https://jdoodle.com/execute-java-online/PENDIENTE) |
 | 4 | Métodos y clases | [OnlineGDB](https://onlinegdb.com/PENDIENTE) |
 | 5 | Programa OOP | [Replit](https://replit.com/@PENDIENTE) |
+| 6 | Errores | [JDoodle](https://jdoodle.com/execute-java-online/PENDIENTE) |
 
 - Cuestionario: [Prueba de conocimientos](https://forms.gle/PENDIENTE)
 - Compartir: #JavaBeginners

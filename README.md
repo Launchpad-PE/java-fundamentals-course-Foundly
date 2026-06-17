@@ -46,7 +46,7 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 - **Descripción**: Mejores prácticas, errores comunes y dónde aprender más.
 - **Enlace**: [Ver la lección](https://www.youtube.com/watch?v=fhe0ZxP172k)
 - **Consejos clave**: Depurar errores, explorar la documentación de Oracle Java.
-**Práctica**: [Clic para programar](https://jdoodle.com/execute-java-online/PENDIENTE)
+- **Práctica**: [Clic para programar](https://jdoodle.com/execute-java-online/PENDIENTE)
   
 ## Recursos adicionales
 - **Código fuente completo**: [Repositorio de GitHub](https://github.com/Launchpad-PE/java-fundamentals-course-Foundly.git)

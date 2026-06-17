@@ -38,9 +38,9 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 
 ### Lección 5: Fundamentos de POO y programas sencillos (15 minutos)
 - **Descripción**: Construye clases con atributos/métodos y crea un programa POO básico.
-- **Enlace**: [Ver la lección](https://www.youtube.com/watch?v=PENDIENTE)
+- **Enlace**: [Ver la lección](https://youtu.be/5o2vHrPnkFE)
 - **Conclusiones clave**: Encapsulación con getters/setters; construye un registro de mascotas.
-- **Proyecto final**: [Crea tu aplicación POO](https://replit.com/@PENDIENTE) 👈 **¡Guarda y comparte!**
+- **Proyecto final**: [Crea tu aplicación POO](https://www.jdoodle.com/ga/d4mgMa4%2Bz6hFfNl4YXkFJg%3D%3D) 👈 **¡Guarda y comparte!**
 
 ### Lección 6: Consejos y próximos pasos (10 minutos)
 - **Descripción**: Mejores prácticas, errores comunes y dónde aprender más.

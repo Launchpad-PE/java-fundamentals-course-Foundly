@@ -32,9 +32,9 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 
 ### Lección 4: Métodos, Entrada/Salida e Introducción a la POO (12 minutos)
 - **Descripción**: Crea código reutilizable con métodos, obtén la entrada del usuario e introduce clases/objetos.
-- **Enlace**: [Ver la lección](https://www.youtube.com/watch?v=PENDIENTE)
+- **Enlace**: [Ver la lección](https://youtu.be/5dureWToIkg)
 - **Conclusiones clave**: public static void saludar() {}; usar Scanner; class Mascota { String nombre; }
-- **Práctica**: [Haz clic para practicar](https://onlinegdb.com/PENDIENTE) 👈 **¡No necesitas registrarte!**
+- **Práctica**: [Haz clic para practicar](https://www.jdoodle.com/ga/ZBsyyEZ1ls%2B48ggN8YY5VA%3D%3D) 👈 **¡No necesitas registrarte!**
 
 ### Lección 5: Fundamentos de POO y programas sencillos (15 minutos)
 - **Descripción**: Construye clases con atributos/métodos y crea un programa POO básico.

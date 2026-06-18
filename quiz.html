@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuestionario – Fundamentos de Java</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f4ff;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1rem 2rem;
+    }
+    header h1 { font-size: 2rem; margin-bottom: 0.4rem; }
+    header p  { opacity: 0.8; font-size: 1rem; }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1.5rem 1rem 0;
+    }
+    .tab-btn {
+      padding: 0.6rem 1.4rem;
+      border: 2px solid #0f3460;
+      border-radius: 30px;
+      background: white;
+      color: #0f3460;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: #0f3460;
+      color: white;
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .container {
+      max-width: 760px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1rem;
+    }
+
+    /* ── QUIZ ────────────────────────────────────────────── */
+    .quiz-card {
+      background: white;
+      border-radius: 14px;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 10px rgba(15,52,96,0.08);
+      border-left: 5px solid #0f3460;
+    }
+    .question-num {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #0f3460;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    .question-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .options label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.55rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 0.4rem;
+      transition: background 0.15s;
+      font-size: 0.97rem;
+      line-height: 1.4;
+    }
+    .options label:hover { background: #f0f4ff; }
+    .options input[type="radio"] { margin-top: 3px; accent-color: #0f3460; flex-shrink: 0; }
+
+    .feedback {
+      display: none;
+      margin-top: 0.8rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+    .feedback.correct   { background: #d4edda; color: #155724; }
+    .feedback.incorrect { background: #f8d7da; color: #721c24; }
+
+    /* Submit / Result */
+    .submit-area { text-align: center; margin-top: 1.5rem; }
+    .btn-submit {
+      background: #0f3460;
+      color: white;
+      border: none;
+      padding: 0.85rem 2.4rem;
+      border-radius: 30px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: #1a5276; }
+
+    #result {
+      display: none;
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1.8rem;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(15,52,96,0.1);
+    }
+    #result .score-circle {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; font-weight: 800; color: white;
+    }
+    .score-great  { background: #27ae60; }
+    .score-good   { background: #f39c12; }
+    .score-keep   { background: #e74c3c; }
+    #result h2 { font-size: 1.4rem; margin-bottom: 0.4rem; }
+    #result p  { color: #555; font-size: 0.97rem; }
+    .btn-retry {
+      display: inline-block;
+      margin-top: 1rem;
+      background: transparent;
+      color: #0f3460;
+      border: 2px solid #0f3460;
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .btn-retry:hover { background: #0f3460; color: white; }
+
+    /* ── SHARE FORM ──────────────────────────────────────── */
+    .share-card {
+      background: white;
+      border-radius: 14px;
+      padding: 2rem 2rem;
+      box-shadow: 0 2px 10px rgba(15,52,96,0.08);
+    }
+    .share-card h2 { font-size: 1.4rem; margin-bottom: 0.3rem; color: #0f3460; }
+    .share-card .subtitle { color: #666; margin-bottom: 1.8rem; font-size: 0.95rem; }
+
+    .form-group { margin-bottom: 1.3rem; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      font-size: 0.97rem;
+    }
+    .optional { font-weight: 400; color: #888; font-size: 0.85rem; }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 2px solid #dde3ef;
+      border-radius: 8px;
+      font-size: 0.97rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #0f3460;
+    }
+    .btn-send {
+      background: #0f3460;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: 100%;
+    }
+    .btn-send:hover { background: #1a5276; }
+
+    #share-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    #share-success .emoji { font-size: 3rem; margin-bottom: 0.6rem; }
+    #share-success h3 { font-size: 1.3rem; color: #0f3460; }
+    #share-success p  { color: #555; margin-top: 0.3rem; }
+
+    @media (max-width: 520px) {
+      header h1 { font-size: 1.5rem; }
+      .quiz-card { padding: 1.2rem 1.1rem; }
+      .tab-btn   { padding: 0.5rem 1rem; font-size: 0.87rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Fundamentos de Java</h1>
+  <p>Evaluación final del curso</p>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('quiz')">Prueba de conocimientos</button>
+  <button class="tab-btn"        onclick="switchTab('share')">Comparte tu proyecto</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     FORMULARIO 1 – CUESTIONARIO
+════════════════════════════════════════════════════════ -->
+<div id="tab-quiz" class="tab-content active">
+  <div class="container">
+
+    <div class="quiz-card" data-answer="b">
+      <div class="question-num">Pregunta 1 · Lección 1</div>
+      <div class="question-text">¿Qué es un programa de computadora?</div>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a"> Un archivo de texto sin formato especial</label>
+        <label><input type="radio" name="q1" value="b"> Un conjunto de instrucciones que la computadora sigue para realizar una tarea</label>
+        <label><input type="radio" name="q1" value="c"> Un tipo de hardware que procesa datos</label>
+        <label><input type="radio" name="q1" value="d"> Una pantalla que muestra imágenes</label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="quiz-card" data-answer="a">
+      <div class="question-num">Pregunta 2 · Lección 2</div>
+      <div class="question-text">¿Cuál es la forma correcta de declarar una variable entera en Java?</div>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a"> <code>int edad = 15;</code></label>
+        <label><input type="radio" name="q2" value="b"> <code>integer edad = 15;</code></label>
+        <label><input type="radio" name="q2" value="c"> <code>var edad = "15";</code></label>
+        <label><input type="radio" name="q2" value="d"> <code>edad int = 15;</code></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="quiz-card" data-answer="c">
+      <div class="question-num">Pregunta 3 · Lección 2</div>
+      <div class="question-text">¿Qué tipo de dato usarías para guardar texto en Java?</div>
+      <div class="options">
+        <label><input type="radio" name="q3" value="a"> <code>int</code></label>
+        <label><input type="radio" name="q3" value="b"> <code>double</code></label>
+        <label><input type="radio" name="q3" value="c"> <code>String</code></label>
+        <label><input type="radio" name="q3" value="d"> <code>boolean</code></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="quiz-card" data-answer="b">
+      <div class="question-num">Pregunta 4 · Lección 3</div>
+      <div class="question-text">¿Qué hace la sentencia <code>if-else</code>?</div>
+      <div class="options">
+        <label><input type="radio" name="q4" value="a"> Repite un bloque de código varias veces</label>
+        <label><input type="radio" name="q4" value="b"> Toma una decisión: ejecuta un bloque si la condición es verdadera y otro si es falsa</label>
+        <label><input type="radio" name="q4" value="c"> Declara una variable nueva</label>
+        <label><input type="radio" name="q4" value="d"> Imprime texto en pantalla</label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="quiz-card" data-answer="d">
+      <div class="question-num">Pregunta 5 · Lección 3</div>
+      <div class="question-text">¿Qué hace un bucle <code>for</code>?</div>
+      <div class="options">
+        <label><input type="radio" name="q5" value="a"> Detiene el programa cuando ocurre un error</label>
+        <label><input type="radio" name="q5" value="b"> Declara una función reutilizable</label>
+        <label><input type="radio" name="q5" value="c"> Evalúa dos condiciones al mismo tiempo</label>
+        <label><input type="radio" name="q5" value="d"> Repite un bloque de código un número determinado de veces</label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="quiz-card" data-answer="a">
+      <div class="question-num">Pregunta 6 · Lección 4</div>
+      <div class="question-text">¿Para qué sirve un método en Java?</div>
+      <div class="options">
+        <label><input type="radio" name="q6" value="a"> Para agrupar instrucciones reutilizables bajo un nombre</label>
+        <label><input type="radio" name="q6" value="b"> Para declarar el tipo de una variable</label>
+        <label><input type="radio" name="q6" value="c"> Para importar bibliotecas externas</label>
+        <label><input type="radio" name="q6" value="d"> Para crear una nueva clase</label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="quiz-card" data-answer="b">
+      <div class="question-num">Pregunta 7 · Lección 4</div>
+      <div class="question-text">¿Qué clase de Java se usa para leer datos ingresados por el usuario?</div>
+      <div class="options">
+        <label><input type="radio" name="q7" value="a"> <code>System</code></label>
+        <label><input type="radio" name="q7" value="b"> <code>Scanner</code></label>
+        <label><input type="radio" name="q7" value="c"> <code>Reader</code></label>
+        <label><input type="radio" name="q7" value="d"> <code>BufferedInput</code></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="quiz-card" data-answer="c">
+      <div class="question-num">Pregunta 8 · Lección 5</div>
+      <div class="question-text">¿Qué es una clase en programación orientada a objetos?</div>
+      <div class="options">
+        <label><input type="radio" name="q8" value="a"> Una función que imprime resultados</label>
+        <label><input type="radio" name="q8" value="b"> Un tipo de bucle especial</label>
+        <label><input type="radio" name="q8" value="c"> Una plantilla que define los atributos y comportamientos de un objeto</label>
+        <label><input type="radio" name="q8" value="d"> Un operador matemático avanzado</label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="quiz-card" data-answer="d">
+      <div class="question-num">Pregunta 9 · Lección 5</div>
+      <div class="question-text">¿Qué es la encapsulación?</div>
+      <div class="options">
+        <label><input type="radio" name="q9" value="a"> El proceso de convertir código a binario</label>
+        <label><input type="radio" name="q9" value="b"> La capacidad de una clase de heredar métodos de otra</label>
+        <label><input type="radio" name="q9" value="c"> Crear múltiples objetos de la misma clase</label>
+        <label><input type="radio" name="q9" value="d"> Proteger los datos de una clase usando modificadores de acceso (private) y métodos getters/setters</label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="quiz-card" data-answer="a">
+      <div class="question-num">Pregunta 10 · Lección 6</div>
+      <div class="question-text">¿Cuál es un error muy común para principiantes en Java?</div>
+      <div class="options">
+        <label><input type="radio" name="q10" value="a"> Olvidar el punto y coma (<code>;</code>) al final de una instrucción</label>
+        <label><input type="radio" name="q10" value="b"> Usar demasiadas variables</label>
+        <label><input type="radio" name="q10" value="c"> Escribir comentarios en el código</label>
+        <label><input type="radio" name="q10" value="d"> Usar la clase <code>Scanner</code></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="submit-area">
+      <button class="btn-submit" onclick="submitQuiz()">Ver mis resultados</button>
+    </div>
+
+    <div id="result">
+      <div class="score-circle" id="score-circle"></div>
+      <h2 id="result-title"></h2>
+      <p id="result-msg"></p>
+      <br>
+      <button class="btn-retry" onclick="retryQuiz()">Intentar de nuevo</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     FORMULARIO 2 – COMPARTE TU PROYECTO
+════════════════════════════════════════════════════════ -->
+<div id="tab-share" class="tab-content">
+  <div class="container">
+    <div class="share-card">
+      <h2>Comparte tu creación</h2>
+      <p class="subtitle">¡Muéstranos lo que construiste! Completa los campos que quieras.</p>
+
+      <div id="share-form">
+        <div class="form-group">
+          <label for="nombre">Nombre <span class="optional">(opcional)</span></label>
+          <input type="text" id="nombre" placeholder="Tu nombre o apodo" />
+        </div>
+
+        <div class="form-group">
+          <label for="enlace">Enlace a tu proyecto en Replit / JDoodle</label>
+          <input type="url" id="enlace" placeholder="https://replit.com/... o https://www.jdoodle.com/..." />
+        </div>
+
+        <div class="form-group">
+          <label for="gusto">¿Qué fue lo que más te gustó aprender?</label>
+          <textarea id="gusto" rows="3" placeholder="Cuéntanos…"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="siguiente">¿Qué te gustaría aprender después de Java?</label>
+          <textarea id="siguiente" rows="3" placeholder="Por ejemplo: aplicaciones móviles, videojuegos, inteligencia artificial…"></textarea>
+        </div>
+
+        <button class="btn-send" onclick="submitShare()">Enviar</button>
+      </div>
+
+      <div id="share-success">
+        <h3>¡Gracias por compartir!</h3>
+        <p>Tu proyecto ha sido registrado. ¡Sigue programando!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ── Tabs ─────────────────────────────────────────── */
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  /* ── Quiz ─────────────────────────────────────────── */
+  function submitQuiz() {
+    const cards = document.querySelectorAll('.quiz-card');
+    let score = 0;
+    let allAnswered = true;
+
+    cards.forEach((card, i) => {
+      const name   = 'q' + (i + 1);
+      const chosen = document.querySelector(`input[name="${name}"]:checked`);
+      const fb     = card.querySelector('.feedback');
+
+      if (!chosen) { allAnswered = false; return; }
+
+      const correct = card.dataset.answer;
+      fb.style.display = 'block';
+
+      if (chosen.value === correct) {
+        score++;
+        fb.className = 'feedback correct';
+        fb.textContent = 'Correcto';
+      } else {
+        fb.className = 'feedback incorrect';
+        const correctLabel = card.querySelector(`input[value="${correct}"]`)
+                                 .closest('label').textContent.trim();
+        fb.textContent = `Incorrecto. La respuesta correcta es: ${correctLabel}`;
+      }
+    });
+
+    if (!allAnswered) {
+      let warning = document.getElementById('quiz-warning');
+      if (!warning) {
+        warning = document.createElement('p');
+        warning.id = 'quiz-warning';
+        warning.style.cssText = 'color:#721c24;background:#f8d7da;padding:0.6rem 1rem;border-radius:8px;text-align:center;margin-top:1rem;font-weight:600;';
+        document.querySelector('.submit-area').appendChild(warning);
+      }
+      warning.textContent = 'Por favor, responde todas las preguntas antes de enviar.';
+      warning.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    const warning = document.getElementById('quiz-warning');
+    if (warning) warning.remove();
+
+    // Show result
+    const result  = document.getElementById('result');
+    const circle  = document.getElementById('score-circle');
+    const title   = document.getElementById('result-title');
+    const msg     = document.getElementById('result-msg');
+
+    result.style.display = 'block';
+    circle.textContent   = `${score}/10`;
+    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    if (score >= 8) {
+      circle.className = 'score-circle score-great';
+      title.textContent = '¡Excelente trabajo!';
+      msg.textContent   = `Obtuviste ${score} de 10. ¡Dominas los fundamentos de Java!`;
+    } else if (score >= 5) {
+      circle.className = 'score-circle score-good';
+      title.textContent = '¡Buen esfuerzo!';
+      msg.textContent   = `Obtuviste ${score} de 10. Repasa las lecciones donde tuviste errores y vuelve a intentarlo.`;
+    } else {
+      circle.className = 'score-circle score-keep';
+      title.textContent = '¡Sigue practicando!';
+      msg.textContent   = `Obtuviste ${score} de 10. Te recomendamos revisar el material del curso y volver a intentarlo.`;
+    }
+  }
+
+  function retryQuiz() {
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+    document.querySelectorAll('.feedback').forEach(fb => { fb.style.display = 'none'; fb.textContent = ''; });
+    document.getElementById('result').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── Share form ───────────────────────────────────── */
+  function submitShare() {
+    const enlace = document.getElementById('enlace').value.trim();
+    if (enlace && !enlace.startsWith('http')) {
+      let warning = document.getElementById('share-warning');
+      if (!warning) {
+        warning = document.createElement('p');
+        warning.id = 'share-warning';
+        warning.style.cssText = 'color:#721c24;background:#f8d7da;padding:0.6rem 1rem;border-radius:8px;text-align:center;margin-bottom:1rem;font-weight:600;';
+        document.querySelector('.btn-send').before(warning);
+      }
+      warning.textContent = 'Por favor ingresa un enlace válido (debe empezar con http:// o https://)';
+      return;
+    }
+    document.getElementById('share-form').style.display = 'none';
+    document.getElementById('share-success').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

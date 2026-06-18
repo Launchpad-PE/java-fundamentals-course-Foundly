@@ -61,8 +61,9 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 | 5 | Programa OOP | [JDoodle](https://www.jdoodle.com)  |
 | 6 | Errores | [JDoodle](https://www.jdoodle.com) |
 
-- Cuestionario: [Prueba de conocimientos](https://forms.gle/PENDIENTE)
-- Compartir: #JavaBeginners
+- Cuestionario: [Prueba de conocimientos](https://launchpad-pe.github.io/java-fundamentals-course-Foundly/quiz.html)
+- Compartir tu proyecto: [Formulario de proyectos](https://launchpad-pe.github.io/java-fundamentals-course-Foundly/quiz.html) (pestaña "Comparte tu proyecto")
+- Hashtag: #JavaBeginners
 
 **¡Gracias por completar el curso!**
 

@@ -8,7 +8,7 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 **Público Objetivo**: Estudiantes de 12 a 17 años sin experiencia en programación  
 **Prerrequisitos**: Ninguno  
 **Herramientas necesarias**: **¡Solo tu navegador web!** (Chrome, Firefox, Safari, Edge)  
-**📂 Repositorio de Código Fuente**: [https://github.com/Launchpad-PE/java-fundamentals-course-Foundly.git](https://github.com/Launchpad-PE/java-fundamentals-course-Foundly.git)
+**📂 Repositorio de Código Fuente**: [https://github.com/Launchpad-PE/java-fundamentals-course-Foundly.git](https://github.com/Launchpad-PE/java-fundamentals-course-Foundly/tree/main/class-materials)
 
 ## Secuencia de la Lección
 

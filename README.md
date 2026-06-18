@@ -49,7 +49,7 @@ programación orientada a objetos. **¡No requiere descargas!** Solo abre tu nav
 - **Práctica**: [Clic para programar](https://www.jdoodle.com/ga/Gso7d%2FotNbAOTH%2BAmKXVqg%3D%3D)
   
 ## Recursos adicionales
-- **Código fuente completo**: [Repositorio de GitHub](https://github.com/Launchpad-PE/java-fundamentals-course-Foundly.git)
+- **Código fuente completo**: [Repositorio de GitHub](https://github.com/Launchpad-PE/java-fundamentals-course-Foundly/tree/main/class-materials)
 - **Todas las actividades prácticas**:
 
 | Número de lección | Actividad | Empezar a programar |
